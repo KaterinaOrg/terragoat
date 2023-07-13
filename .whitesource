@@ -1,27 +1,45 @@
 {
-  "scanSettings": {
-    "configMode": "AUTO",
-    "configExternalURL": "",
-    "projectToken": "",
-    "baseBranches": [],
-    "enableIaC": true
-  },
-  "checkRunSettings": {
-    "vulnerableCheckRunConclusionLevel": "failure",
-    "displayMode": "diff",
-    "useMendCheckNames": true
-  },
-  "issueSettings": {
-    "minSeverityLevel": "LOW",
-    "issueType": "DEPENDENCY"
-  },
-  "remediateSettings": {
-    "workflowRules": {
-      "enabled": true
+    "scanSettings": {
+        "configMode": "AUTO",
+        "configExternalURL": "",
+        "projectToken": "",
+        "baseBranches": [
+            "master"
+        ],
+        "enableLicenseViolations": true,
+        "enableIaC": true
+    },
+    "checkRunSettings": {
+        "vulnerableCheckRunConclusionLevel": "success",
+        "licenseCheckRunConclusionLevel": "success",
+        "iacCheckRunConclusionLevel": "success",
+        "displayMode": "baseline",
+        "useMendCheckNames": true
+    },
+    "issueSettings": {
+        "minSeverityLevel": "LOW",
+        "issueType": "DEPENDENCY",
+        "displayLicenseViolations": true
+    },
+    "remediateSettings": {
+        "enableRenovate": false,
+        "workflowRules": {
+            "minVulnerabilitySeverity": "HIGH",
+            "enabled": true
+        }
+    },
+    "scanSettingsSAST": {
+        "enableScan": true,
+        "baseBranches": [
+            "main"
+        ],
+        "scanPullRequests": true,
+        "incrementalScan": true,
+        "snippetSize": 10
+    },
+    "checkRunSettingsSAST": {
+        "checkRunConclusionLevel": "success",
+        "severityThreshold": "high"
     }
-  }
 }
-
-
-
-
+}
